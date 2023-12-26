@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Request</title>
+    <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.js"></script>
+</head>
+<body>
+
+<h2>Weather Request</h2>
+
+<form hx-post="http://0.0.0.0:8080/weather" hx-trigger="submit" hx-target="#weather-result">
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude" required>
+
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude" required>
+
+    <button type="submit" hx-get="#weather-result">Get Weather</button>
+</form>
+
+<div id="weather-result" hx-swap="outerHTML">
+    <!-- Response content will be displayed here -->
+</div>
+
+</body>
+</html>
